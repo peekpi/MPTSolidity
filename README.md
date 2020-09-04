@@ -26,3 +26,8 @@ cd scripts
 ln -s /tmp/testcases.json
 truffle --network=develop exec mpt.js
 ```
+
+# generate solidity code for go struct RLP decode
+1. define Go struct in `go/receipt_rlp_test.go`
+2. run `TestReceiptDecoding` in `go/receipt_rlp_test.go`
+
