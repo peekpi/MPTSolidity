@@ -106,7 +106,8 @@ contract ProvethVerifier {
 
     function MPTProof(bytes32 rootHash, bytes memory mptkey, bytes memory proof) pure public returns(bytes memory){
         RLPReader.RLPItem[] memory stacks = proof.toRlpItem().toList();
-        return validateMPTProof(rootHash, mptkey, stacks);
+        bytes memory newkey = decodeNibbles(mptkey, 0, 1);
+        return validateMPTProof(rootHash, newkey, stacks);
     }
 
     /// @dev Validates a Merkle-Patricia-Trie proof.
